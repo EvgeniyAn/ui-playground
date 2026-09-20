@@ -1,6 +1,6 @@
 # HTML / CSS / JS — UI Collection
 
-Open [index.html](index.html) directly in your browser to browse descriptions and links to all 37 projects. Each project opens in a new tab. No build step or dependency installation is required.
+Open [index.html](index.html) directly in your browser to browse descriptions and links to all 36 projects. Each project opens in a new tab. No build step or dependency installation is required.
 
 ## Projects
 
@@ -10,9 +10,9 @@ The collection includes:
 - **Buttons & Actions** — sharing, ordering, sending, downloading, and deletion animations.
 - **Payments & Files** — interactive checkout demos and a simulated file upload flow.
 - **Navigation & Cards** — navigation bars, a team carousel, notifications, and an expanding photo gallery.
-- **More Web Projects** — 17 course exercises, including 3D effects, menus, a calendar, custom controls, slideshows, and CSS loaders.
+- **More Web Projects** — 16 course exercises, including 3D effects, menus, a calendar, custom controls, slideshows, and CSS loaders.
 
-Each demo lives in its own folder with HTML, CSS, JavaScript, and any required assets. Project READMEs, where available, explain the controls and demo limitations. Payment and login examples simulate interactions without a backend. Some demos use external fonts, icons, or images that require an internet connection. Expanding Cards and Sidebar Hamburger Menu are unfinished exercises and are marked as work in progress in the catalog.
+Each demo lives in its own folder with HTML, CSS, JavaScript, and any required assets. Project READMEs, where available, explain the controls and demo limitations. Payment and login examples simulate interactions without a backend. Some demos use external fonts, icons, or images that require an internet connection. Expanding Cards is an unfinished exercise and is marked as work in progress in the catalog.
 
 ## Adding a project
 
