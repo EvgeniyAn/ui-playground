@@ -1,0 +1,35 @@
+* { box-sizing: border-box; }
+:root { color-scheme: dark; font-family: Arial, Helvetica, sans-serif; background: #000; color: #f5f4f5; }
+body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 24px 16px; }
+main { width: min(440px, 100%); }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.otp-card { position: relative; width: 100%; height: 474px; overflow: hidden; background: #121013; border: 1px solid #211e22; border-radius: 42px; }
+.handle { position: absolute; top: 17px; left: 50%; width: 50px; height: 4px; border-radius: 8px; background: #39363b; transform: translateX(-50%); }
+header { position: absolute; top: 79px; width: 100%; text-align: center; padding: 0 20px; }
+h1 { font-size: 27px; line-height: 34px; letter-spacing: -.7px; margin: 0 0 19px; font-weight: 600; }
+.description { margin: 0; color: #716d74; font-size: 16px; line-height: 24px; }
+.stage { position: absolute; top: 230px; left: 50%; width: 320px; height: 170px; transform: translateX(-50%); }
+.digit { position: absolute; top: 50px; width: 67px; height: 67px; border: 2px solid #302d32; background: #141216; border-radius: 18px; overflow: hidden; }
+.digit:nth-child(1) { left: 1px; } .digit:nth-child(2) { left: 85px; } .digit:nth-child(3) { left: 169px; } .digit:nth-child(4) { left: 253px; }
+input { width: 100%; height: 100%; border: 0; outline: 0; background: transparent; color: #f5f4f5; text-align: center; font-size: 29px; caret-color: #eee; padding: 0; border-radius: inherit; }
+.digit:focus-within { border-color: #f45438; box-shadow: 0 10px 24px #ec45251c, 0 0 2px #f45438; }
+.orbit { position: absolute; inset: -2px; border: 2px solid transparent; border-top-color: #f47a67; border-left-color: #ac4338; border-radius: inherit; opacity: 0; pointer-events: none; }
+.connections { position: absolute; inset: 0; width: 100%; height: 100%; fill: none; stroke: #87838a; stroke-width: 4; stroke-linecap: round; }
+.connections path { stroke-dasharray: 452; stroke-dashoffset: 452; }
+.success-icon { position: absolute; top: 50px; left: 126px; width: 67px; height: 67px; border: 2px solid #24aa51; border-radius: 18px; background: #141216; opacity: 0; }
+.success-icon svg { width: 40px; height: 40px; margin: 11px; fill: none; stroke: #fff; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+footer { position: absolute; top: 401px; width: 100%; text-align: center; font-size: 16px; color: #716d74; }
+button { background: none; border: 0; padding: 0; color: #f5f4f5; }
+.resend { font-weight: 600; margin-left: 7px; }
+button:focus-visible { outline: 2px solid #f45438; outline-offset: 5px; border-radius: 3px; }
+.secure { color: #27b755; font-size: 18px; font-weight: 600; align-items: center; justify-content: center; gap: 9px; }
+.secure:not([hidden]) { display: flex; }
+.secure svg { width: 22px; height: 22px; stroke: currentColor; stroke-width: 1.8; fill: none; }
+[data-state="success"] h1 { color: #28b956; }
+.confetti { position: absolute; inset: 0; pointer-events: none; }
+.confetti i { position: absolute; left: 158px; top: 82px; width: 5px; height: 5px; background: #20bb53; }
+.demo-controls { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 22px; color: #77717c; font-size: 12px; }
+.replay { color: #a49ba9; padding: 5px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media(max-width: 390px) { .otp-card { height: 430px; border-radius: 32px; } header { top: 68px; padding: 0 10px; } h1 { font-size: 22px; letter-spacing: -.5px; } .description { font-size: 13px; line-height: 21px; } .stage { top: 196px; transform: translateX(-50%) scale(.82); } footer { top: 363px; font-size: 12px; } .secure { font-size: 16px; } }

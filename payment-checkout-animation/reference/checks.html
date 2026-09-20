@@ -1,0 +1,36 @@
+<!doctype html><meta charset="utf-8"><title>Checkout interaction checks</title>
+<style>body{font:14px monospace;margin:20px}iframe{width:1200px;height:900px;border:1px solid #aaa}button{padding:10px}pre{white-space:pre-wrap}</style>
+<button id="run">Run interaction checks</button><button id="reduced">Run reduced-motion checks</button><button id="flip">Freeze mid-flip</button><pre id="report">Ready</pre><iframe title="Checkout under test" src="../index.html"></iframe>
+<script>
+const frame=document.querySelector('iframe'),report=document.querySelector('#report');
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+async function until(fn){for(let i=0;i<160;i++){if(fn())return;await wait(50)}throw Error('State timed out')}
+function check(value,label){if(!value)throw Error(label);report.textContent+='\nPASS '+label}
+async function suite(reduced){
+ report.textContent='Running';
+ try{
+ if(reduced){let source=await(await fetch('../index.html')).text();source=source.replace('<head>','<head><base href="'+new URL('../',location.href).href+'"><script>const nativeMM=window.matchMedia.bind(window);window.matchMedia=q=>q.includes("prefers-reduced-motion")?{matches:true}:nativeMM(q);<\/script>');frame.srcdoc=source;await new Promise(r=>frame.onload=r)}
+ else{frame.removeAttribute('srcdoc');frame.src='../index.html';await new Promise(r=>frame.onload=r)}
+ const w=frame.contentWindow,d=w.document,$=s=>d.querySelector(s),form=$('form');
+ const input=(name,value)=>{let e=form.elements[name];e.value=value;e.dispatchEvent(new w.Event('input',{bubbles:true}))};
+ input('holder','  ');check(!form.checkValidity(),'Empty holder rejected');input('holder','Alex Demo');
+ input('number','4242424242424242');check($('[data-preview=number]').textContent==='4242 4242 4242 4242','Card number formatted and mirrored');
+ input('expiry','1399');check(!form.checkValidity(),'Invalid month rejected');input('expiry','1228');
+ input('cvv','3a21');check(form.elements.cvv.value==='321','CVV non-digits removed');
+ form.elements.cvv.focus();await wait(100);check($('.credit-card').classList.contains('flipped'),'CVV focus flips card');
+ form.elements.holder.focus();await wait(100);check(!$('.credit-card').classList.contains('flipped'),'Leaving CVV reverses flip');
+ for(let cycle=0;cycle<3;cycle++){
+ let start=performance.now();form.requestSubmit();form.requestSubmit();form.requestSubmit();
+ check($('.checkout').dataset.state==='processing'&&form.inert&&$('.pay-button').disabled,'Repeated submit locked, cycle '+cycle);
+ await until(()=>$('.checkout').dataset.state==='success'&&!$('.replay').disabled);
+ check(!$('.success-content').hidden&&!$('.checkout').hasAttribute('aria-busy'),'Success complete, cycle '+cycle);
+ if(reduced)check(performance.now()-start<800,'Reduced-motion cycle completes without long motion');
+ $('.replay').click();$('.replay').click();await until(()=>$('.checkout').dataset.state==='form'&&d.activeElement===form.elements.holder);
+ check(!form.inert&&!$('.pay-button').disabled&&$('.success-content').hidden,'Replay restores form and focus, cycle '+cycle);
+ }
+ report.textContent+='\nALL CHECKS PASSED'+(reduced?' (JS media preference simulated)':'');
+ }catch(e){report.textContent+='\nFAIL '+e.stack}
+}
+document.querySelector('#run').onclick=()=>suite(false);document.querySelector('#reduced').onclick=()=>suite(true);
+document.querySelector('#flip').onclick=async()=>{const d=frame.contentDocument;d.querySelector('[name=cvv]').focus();await wait(170);for(const a of d.querySelector('.credit-card').getAnimations())a.pause();report.textContent='Paused at 170 ms of flip'};
+</script>

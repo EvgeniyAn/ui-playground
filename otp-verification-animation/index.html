@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OTP Verification · V7</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <section class="otp-card" data-state="entry" aria-label="Phone verification demo">
+      <span class="handle" aria-hidden="true"></span>
+      <header>
+        <h1>Let's verify your number</h1>
+        <p class="description">We've sent a 4-digit code to your phone.<br>It'll auto-verify once entered.</p>
+      </header>
+      <div class="stage">
+        <svg class="connections" viewBox="0 0 320 170" aria-hidden="true"><path d="M97 35 H223 V135 H97 Z"/></svg>
+        <div class="digits" role="group" aria-label="Four-digit code">
+          <div class="digit"><input aria-label="Digit 1" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]*" autofocus><span class="orbit"></span></div>
+          <div class="digit"><input aria-label="Digit 2" inputmode="numeric" autocomplete="off" pattern="[0-9]*"><span class="orbit"></span></div>
+          <div class="digit"><input aria-label="Digit 3" inputmode="numeric" autocomplete="off" pattern="[0-9]*"><span class="orbit"></span></div>
+          <div class="digit"><input aria-label="Digit 4" inputmode="numeric" autocomplete="off" pattern="[0-9]*"><span class="orbit"></span></div>
+        </div>
+        <div class="success-icon" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="m8 16 5 5 11-11"/></svg></div>
+        <div class="confetti" aria-hidden="true"></div>
+      </div>
+      <footer>
+        <div class="resend-row">Didn't receive the code? <button class="resend" type="button">Resend</button></div>
+        <div class="secure" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="12" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></svg>Verified and Secure</div>
+      </footer>
+      <p class="sr-only" role="status" aria-live="polite"></p>
+    </section>
+    <div class="demo-controls"><span>Demo · enter any 4 digits</span><button class="replay" type="button">Replay</button></div>
+  </main>
+</body>
+</html>

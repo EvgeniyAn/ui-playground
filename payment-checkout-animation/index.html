@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Payment Checkout</title>
+  <link rel="stylesheet" href="style.css?v=2">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="spark" viewBox="0 0 24 24"><path d="m12 3 2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4Z"/><path d="m20 2 .7 2.3L23 5l-2.3.7L20 8l-.7-2.3L17 5l2.3-.7Z"/></symbol>
+    <symbol id="user" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3.5"/><path d="M5 21v-3a7 7 0 0 1 14 0v3"/></symbol>
+    <symbol id="card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M5 15h4"/></symbol>
+    <symbol id="calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="17" rx="2"/><path d="M7 2v6M17 2v6M3 11h18"/></symbol>
+    <symbol id="lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="12" rx="2"/><path d="M7 10V7a5 5 0 0 1 10 0v3"/></symbol>
+    <symbol id="shield" viewBox="0 0 24 24"><path d="m12 2 8 4v6c0 5-8 10-8 10S4 17 4 12V6Z"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+  </defs></svg>
+  <main class="checkout" data-state="form" aria-label="Payment checkout demo">
+    <header class="checkout-header">
+      <a class="brand" href="./index.html" aria-label="CODEXR checkout home"><span class="brand-icon"><svg><use href="#spark"/></svg></span><span><strong>CODEXR</strong> <span class="brand-light">CHECKOUT</span></span></a>
+      <ol class="steps" aria-label="Checkout progress"><li><span class="step-dot complete">✓</span>Main page</li><li><span class="step-dot complete">✓</span>Shipping details</li><li aria-current="step"><span class="step-dot">3</span>Payment method</li></ol>
+    </header>
+    <div class="checkout-body">
+      <div class="card-zone">
+        <div class="card-position">
+          <div class="card-stack">
+            <div class="ghost ghost-two"></div><div class="ghost ghost-one"></div>
+            <div class="card-glow"></div>
+            <div class="credit-card" aria-label="Live preview of your demo card">
+              <div class="card-face card-front">
+                <div class="card-top"><span class="chip"></span><svg class="contactless" viewBox="0 0 24 30" aria-hidden="true"><path d="M5 12q3 3 0 6M10 8q6 7 0 14M15 4q9 11 0 22"/></svg><span class="platinum">PLATINUM</span></div>
+                <div class="card-digits" data-preview="number">4535 3453 4534 5435</div>
+                <div class="card-bottom"><div class="holder"><span class="card-label">CARDHOLDER NAME</span><span data-preview="name">CODEXR</span></div><div><span class="card-label">EXPIRES</span><span data-preview="expiry">12/28</span></div><div class="visa">VISA<small>INFINITE</small></div></div>
+              </div>
+              <div class="card-face card-back"><div class="magnetic-strip"></div><div class="cvv-label">SECURITY CODE (CVV)</div><div class="signature"><span data-preview="cvv">•••</span></div><p>This is a demonstration card for an interactive checkout.<br>No real payment is made. Please use sample details only.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="trust-badges" aria-label="Decorative security badges from the reference"><span><svg><use href="#shield"/></svg>256-Bit SSL Encrypted</span><span><svg><use href="#lock"/></svg>PCI-DSS Compliant</span></div>
+      </div>
+      <form class="payment-form" autocomplete="off">
+        <h1>Payment details</h1><p class="intro">Enter your card information to complete the transaction</p>
+        <label class="field">CARDHOLDER NAME<span class="input-wrap"><svg><use href="#user"/></svg><input name="holder" aria-label="Cardholder name" value="CODEXR" required maxlength="28" spellcheck="false"></span></label>
+        <label class="field">CARD NUMBER<span class="input-wrap"><svg><use href="#card"/></svg><input name="number" aria-label="Card number" value="4535 3453 4534 5435" inputmode="numeric" required minlength="19" maxlength="19" pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}"><span class="input-visa">VISA</span></span></label>
+        <div class="field-row"><label class="field">EXPIRY DATE<span class="input-wrap"><svg><use href="#calendar"/></svg><input name="expiry" aria-label="Expiry date" value="12/28" inputmode="numeric" required maxlength="5" pattern="(0[1-9]|1[0-2])/[0-9]{2}"></span></label><label class="field">CVV / CVC<span class="input-wrap"><svg><use href="#lock"/></svg><input name="cvv" aria-label="CVV / CVC" type="password" inputmode="numeric" value="123" required minlength="3" maxlength="4" pattern="[0-9]{3,4}"></span></label></div>
+        <div class="amount"><span>Payment amount:</span><strong>1,234<small>$</small></strong></div>
+        <button class="pay-button" type="submit">PAY 1,234$ NOW <svg><use href="#arrow"/></svg></button>
+      </form>
+      <div class="result" role="status" aria-live="polite"><p class="processing-text">Processing Secure Transaction<span class="dots">...</span></p><div class="success-content" hidden><svg class="success-icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27"/><path d="m20 32 9 9 17-19"/></svg><h2>Payment Successful!</h2><p>Your transaction of <strong>$1,234.00</strong> has been processed<br>successfully.</p><button class="replay" type="button">Try again <span aria-hidden="true">↻</span></button></div></div>
+    </div>
+  </main>
+  <p class="demo-note">Interactive demo · No real payment</p>
+</body>
+</html>

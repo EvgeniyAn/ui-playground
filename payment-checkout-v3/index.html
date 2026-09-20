@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Payment Checkout V3</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="demo" data-checkout-demo>
+    <section class="checkout" data-state="ready" aria-label="Payment checkout demo">
+      <div class="checkout-form">
+        <header class="checkout-header">
+          <h1>Payment Checkout</h1>
+          <svg class="muted" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/></svg>
+        </header>
+        <p class="field-label">Pay with</p>
+        <details class="payment-method">
+          <summary aria-label="View Visa payment method ending in 4242">
+            <span class="visa">VISA</span>
+            <span class="card-number">•••• •••• •••• 4242</span>
+            <svg class="chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+          </summary>
+          <div class="method-info"><strong>Visa ending in 4242</strong><span>Demo card · No charge will be made.</span></div>
+        </details>
+        <div class="amount-block">
+          <p class="field-label">Amount</p>
+          <p class="amount">₹1,299.00</p>
+        </div>
+        <div class="order-summary">
+          <h2>Order Summary</h2>
+          <dl><dt>Subtotal</dt><dd>₹1,299.00</dd></dl>
+        </div>
+      </div>
+
+      <div class="verification" hidden aria-hidden="true">
+        <div class="ripples"><i></i><i></i><i></i><i></i></div>
+        <svg class="progress-ring" viewBox="0 0 180 180" aria-hidden="true">
+          <circle class="progress-track" cx="90" cy="90" r="85"/>
+          <circle class="progress-arc" cx="90" cy="90" r="85" pathLength="100"/>
+        </svg>
+        <div class="progress-copy"><span>Verifying Payment</span><strong class="percentage">0%</strong></div>
+      </div>
+
+      <button class="pay-button" type="button" aria-label="Pay Now — demo payment">
+        <span class="pay-label">
+          <svg class="button-lock" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/></svg>
+          <svg class="spinner" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 1-9 9"/></svg>
+          <span class="pay-text">Pay Now</span>
+        </span>
+        <span class="token-icons" aria-hidden="true">
+          <svg class="token-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h5"/></svg>
+          <svg class="token-lock" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/></svg>
+          <svg class="token-check" viewBox="0 0 24 24"><path d="m5 12 4.5 4.5L19 7" pathLength="1"/></svg>
+        </span>
+      </button>
+
+      <div class="success-content" hidden>
+        <div class="success-halo" aria-hidden="true"><i></i><i></i></div>
+        <div class="success-heading">
+          <h2 tabindex="-1">Payment Successful</h2>
+          <p class="success-amount">₹1,299.00</p>
+        </div>
+        <div class="confirmation"><h3>Order Confirmed</h3><p>Thank you for your purchase!</p></div>
+        <button class="details-button" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6M8 12h8M8 16h8"/></svg>
+          View Order Details
+        </button>
+      </div>
+      <div class="confetti" aria-hidden="true"></div>
+    </section>
+
+    <footer class="demo-controls">
+      <button class="replay-button" type="button">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10a9 9 0 1 1 1.5 7M3 4v6h6"/></svg>
+        Replay animation
+      </button>
+      <p>Demo · No payment is made</p>
+    </footer>
+    <p class="sr-only status" role="status" aria-live="polite" aria-atomic="true">Demo payment ready.</p>
+
+    <dialog class="receipt" aria-label="Order details">
+      <form method="dialog">
+        <div class="receipt-header"><h2>Order Details</h2><button class="close-button" aria-label="Close order details" value="close">×</button></div>
+        <span class="receipt-status">Payment successful</span>
+        <dl><dt>Order</dt><dd>DEMO-4242</dd><dt>Payment method</dt><dd>Visa ···· 4242</dd><dt>Subtotal</dt><dd>₹1,299.00</dd><dt>Total</dt><dd><strong>₹1,299.00</strong></dd></dl>
+        <p>This is a visual demo. No payment was made.</p>
+        <button class="receipt-done" value="close">Done</button>
+      </form>
+    </dialog>
+    <noscript><p class="no-script">Enable JavaScript to play the checkout animation.</p></noscript>
+  </main>
+</body>
+</html>

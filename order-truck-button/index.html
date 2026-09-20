@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Order truck button</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main aria-label="Order button animation demo">
+    <div class="demo">
+      <button class="order" type="button" aria-label="Complete Order" data-state="idle">
+        <span class="label initial" aria-hidden="true">Complete Order</span>
+        <svg class="scene" viewBox="0 0 300 72" aria-hidden="true">
+          <defs><linearGradient id="headlight"><stop stop-color="#f9ce44" stop-opacity=".7"/><stop offset="1" stop-color="#f9ce44" stop-opacity="0"/></linearGradient></defs>
+          <path class="road" d="M-300 36H600" fill="none" stroke="#777c87" stroke-width="2" stroke-dasharray="9 10"/>
+          <g class="parcel"><rect x="62" y="22" width="30" height="28" rx="3" fill="#e9aa4b"/><path d="M73 22h8v28h-8z" fill="#bc8136"/><path d="M64 23h26" stroke="#f7c677" stroke-width="2"/></g>
+          <g class="truck">
+            <g class="lights"><path d="M98 7L185-14V30Z" fill="url(#headlight)"/><path d="M98 43L185 22V66Z" fill="url(#headlight)"/></g>
+            <path d="M59 1l9-7M59 49l9 7" stroke="#f7f8fa" stroke-width="2" stroke-linecap="round"/>
+            <path d="M64 1h23q13 0 13 24t-13 24H64Z" fill="#2854da"/>
+            <path d="M70 5h15q9 0 9 20t-9 20H70Z" fill="#101521"/>
+            <path d="M74 9l13 13" stroke="#535d74" stroke-width="2.5" stroke-linecap="round"/>
+            <rect class="lamp" x="96" y="3" width="4" height="8" rx="1.5" fill="#ffe3b0"/>
+            <rect class="lamp" x="96" y="39" width="4" height="8" rx="1.5" fill="#ffe3b0"/>
+            <rect x="0" y="1" width="66" height="48" rx="3" fill="#fafbfc"/>
+            <path d="M55 2v46" stroke="#e3e5e9" stroke-width="2"/>
+            <path class="door top" d="M0 0V25" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+            <path class="door bottom" d="M0 50V25" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <span class="label success" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3 8 3 3 7-7"/></svg>Order Placed</span>
+      </button>
+      <button class="replay" type="button" aria-label="Replay animation">↻ <span>Replay</span></button>
+      <p class="sr-only" role="status" aria-live="polite"></p>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notification Stack</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1 class="sr-only">Notification stacks</h1>
+    <section class="panel basic" aria-labelledby="basic-title" data-stack="basic">
+      <h2 id="basic-title">Basic Notification Stack</h2>
+      <div class="cards"></div>
+      <p class="empty" hidden>You're all caught up.</p>
+      <p class="sr-only status" role="status"></p>
+    </section>
+    <section class="panel premium" aria-labelledby="premium-title" data-stack="premium">
+      <h2 id="premium-title">Premium Notification Stack</h2>
+      <div class="deck">
+        <span class="count" aria-hidden="true">+3</span>
+        <div class="cards"></div>
+        <p class="empty" hidden>You're all caught up.</p>
+      </div>
+      <div class="dots" aria-hidden="true"></div>
+      <p class="sr-only status" role="status"></p>
+    </section>
+    <footer><button class="replay" type="button">↻ <span>Replay</span></button><p>Dismiss with × · Esc to cancel</p></footer>
+  </main>
+</body>
+</html>

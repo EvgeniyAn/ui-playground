@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bug report · Basic & Premium</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="bug" viewBox="0 0 24 24"><path d="M8 7V5a4 4 0 0 1 8 0v2M9 2 7 0m8 2 2-2M5 10H1m4 5H1m18-5h4m-4 5h4M5 7 2 5m17 2 3-2M5 18l-3 3m17-3 3 3"/><rect x="5" y="7" width="14" height="15" rx="7"/><path d="M12 8v14M5 11h14"/></symbol>
+    <symbol id="tag" viewBox="0 0 24 24"><path d="M3 3h8l10 10-8 8L3 11Z"/><circle cx="7.5" cy="7.5" r="1.5"/></symbol>
+    <symbol id="message" viewBox="0 0 24 24"><path d="M3 3h18v14H8l-5 4ZM6 7h12M6 10h12M6 13h8"/></symbol>
+    <symbol id="monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M12 17v4m-5 0h10"/></symbol>
+    <symbol id="upload" viewBox="0 0 24 24"><path d="M6 19H5a4 4 0 0 1-1-8 8 8 0 0 1 15-2 5 5 0 0 1 0 10h-1M12 20V9m-4 4 4-4 4 4"/></symbol>
+    <symbol id="send" viewBox="0 0 24 24"><path d="m22 2-7 20-5-8-8-5ZM10 14 22 2"/></symbol>
+    <symbol id="palette" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20c4 0 0-5 3-6h3c7-2 2-14-6-14Z"/><circle cx="7" cy="8" r="1"/><circle cx="12" cy="6" r="1"/><circle cx="17" cy="9" r="1"/><circle cx="6" cy="13" r="1"/></symbol>
+    <symbol id="gauge" viewBox="0 0 24 24"><path d="M3 19a10 10 0 1 1 18 0ZM12 16l5-7M5 13h2m3-8 1 2m8 6h2"/></symbol>
+  </defs></svg>
+  <main aria-label="Bug report forms">
+    <section aria-labelledby="basic-heading">
+      <h1 id="basic-heading" class="variant">Basic bug report</h1>
+      <form class="card basic" id="basic-form">
+        <header><div><h2>Report a Bug</h2><p>Tell us what went wrong.</p></div></header>
+        <div class="fields">
+          <label>Bug Title<input name="title" placeholder="Enter bug title" maxlength="100" required></label>
+          <label>Description<textarea name="description" placeholder="Describe the issue..." maxlength="200" required></textarea></label>
+          <div class="two-columns">
+            <label>Bug Type<select name="type" required><option value="">Select type</option><option>UI Issue</option><option>Functionality</option><option>Performance</option><option>Other</option></select></label>
+            <label>Priority<select name="priority" required><option value="">Select priority</option><option>Low</option><option>Medium</option><option>High</option></select></label>
+          </div>
+          <label>Browser / Device<input name="device" placeholder="Chrome, Windows 11" maxlength="100"></label>
+          <button class="submit" type="submit"><span class="spinner" aria-hidden="true"></span><span class="button-text">Submit Bug</span></button>
+        </div>
+        <div class="success" role="status" hidden><span class="check" aria-hidden="true">✓</span><div><strong>Bug Report Submitted</strong><small>Thanks for helping us improve.</small></div></div>
+        <div class="actions" hidden><button type="button" class="cancel" hidden>Cancel</button><button type="reset" class="replay" hidden>↻ Replay</button></div>
+      </form>
+    </section>
+    <section aria-labelledby="premium-heading">
+      <h1 id="premium-heading" class="variant">Premium bug report</h1>
+      <form class="card premium" id="premium-form">
+        <header><span class="bug-icon"><svg><use href="#bug"/></svg></span><div><h2>Report a Bug</h2><p>Help us improve your experience.</p></div></header>
+        <div class="fields">
+          <label>Bug Title<span class="input-box"><svg><use href="#tag"/></svg><input name="title" placeholder="What went wrong?" maxlength="100" required></span></label>
+          <label>Description<span class="input-box description"><svg><use href="#message"/></svg><textarea name="description" placeholder="Describe the issue..." maxlength="200" required aria-describedby="description-count"></textarea><span class="counter" id="description-count">0/200</span></span></label>
+          <fieldset><legend>Bug Type</legend><div class="bug-types">
+            <label class="choice"><input type="radio" name="type" value="UI" checked><span><svg><use href="#palette"/></svg>UI</span></label>
+            <label class="choice"><input type="radio" name="type" value="Function"><span><b aria-hidden="true">⚙</b>Function</span></label>
+            <label class="choice"><input type="radio" name="type" value="Performance"><span><svg><use href="#gauge"/></svg>Performance</span></label>
+            <label class="choice"><input type="radio" name="type" value="Other"><span><b aria-hidden="true">···</b>Other</span></label>
+          </div></fieldset>
+          <fieldset><legend>Priority</legend><div class="priorities">
+            <label class="choice low"><input type="radio" name="priority" value="Low" checked><span><i aria-hidden="true"></i>Low</span></label>
+            <label class="choice medium"><input type="radio" name="priority" value="Medium"><span><i aria-hidden="true">!</i>Medium</span></label>
+            <label class="choice high"><input type="radio" name="priority" value="High"><span><b aria-hidden="true">♨</b>High</span></label>
+          </div></fieldset>
+          <label>Browser / Device<span class="input-box"><svg><use href="#monitor"/></svg><input name="device" placeholder="Chrome, Windows 11" maxlength="100"></span></label>
+          <div class="attachment"><label class="upload"><input type="file" name="screenshot" accept="image/png,image/jpeg,image/webp,image/gif"><svg><use href="#upload"/></svg><span><strong class="file-name">Attach Screenshot</strong><small class="file-hint">Click to upload image</small></span></label><button class="remove-file" type="button" aria-label="Remove screenshot" hidden>×</button></div>
+          <p class="file-error" role="alert" hidden></p>
+          <button class="submit" type="submit"><span class="spinner" aria-hidden="true"></span><svg class="send-icon"><use href="#send"/></svg><span class="button-text">Submit Bug</span></button>
+        </div>
+        <div class="success" role="status" hidden><span class="check" aria-hidden="true">✓</span><div><strong>Bug Report Submitted</strong><small>Thanks for helping us improve.</small></div></div>
+        <div class="actions" hidden><button type="button" class="cancel" hidden>Cancel</button><button type="reset" class="replay" hidden>↻ Replay</button></div>
+      </form>
+    </section>
+    <p class="demo-note">Interactive demo · Reports stay on this page.</p>
+  </main>
+</body>
+</html>

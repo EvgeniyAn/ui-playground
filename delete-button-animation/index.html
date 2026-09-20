@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#090d10">
+    <title>Delete Button — The Bin Eats The Label</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1 lang="en">Delete Button <span>The Bin Eats The Label</span></h1>
+      <section class="demo" aria-label="Два варианта анимированной кнопки удаления">
+        <div class="buttons">
+          <div class="gulp" data-theme="purple" data-state="idle">
+            <button class="gulp-button" type="button" aria-label="Запустить анимацию — фиолетовая кнопка">
+              <span class="face" aria-hidden="true"></span>
+              <svg class="bin" viewBox="0 0 40 52" fill="none" aria-hidden="true">
+                <defs><clipPath id="inside-purple"><path d="M10 19h20l-2.7 25.5a2 2 0 0 1-2 1.8H14.7a2 2 0 0 1-2-1.8Z"/></clipPath></defs>
+                <g clip-path="url(#inside-purple)"><path class="bin-fill" d="M6 17h28v33H6Z" fill="currentColor"/></g>
+                <path class="bin-body" d="M8 17h24l-3 28a3 3 0 0 1-3 2.7H14a3 3 0 0 1-3-2.7Z"/>
+                <g class="bin-lid"><path d="M5 12h30M15 12v-1a5 5 0 0 1 10 0v1"/></g>
+              </svg>
+              <span class="label" aria-hidden="true">Delete</span>
+            </button>
+            <svg class="ring" viewBox="0 0 128 128" aria-hidden="true"><circle cx="64" cy="64" r="58" pathLength="100"/></svg>
+            <span class="sr-only status" role="status" aria-live="polite"></span>
+          </div>
+          <div class="gulp" data-theme="graphite" data-state="idle">
+            <button class="gulp-button" type="button" aria-label="Запустить анимацию — графитовая кнопка">
+              <span class="face" aria-hidden="true"></span>
+              <svg class="bin" viewBox="0 0 40 52" fill="none" aria-hidden="true">
+                <defs><clipPath id="inside-graphite"><path d="M10 19h20l-2.7 25.5a2 2 0 0 1-2 1.8H14.7a2 2 0 0 1-2-1.8Z"/></clipPath></defs>
+                <g clip-path="url(#inside-graphite)"><path class="bin-fill" d="M6 17h28v33H6Z" fill="currentColor"/></g>
+                <path class="bin-body" d="M8 17h24l-3 28a3 3 0 0 1-3 2.7H14a3 3 0 0 1-3-2.7Z"/>
+                <g class="bin-lid"><path d="M5 12h30M15 12v-1a5 5 0 0 1 10 0v1"/></g>
+              </svg>
+              <span class="label" aria-hidden="true">Delete</span>
+            </button>
+            <svg class="ring" viewBox="0 0 128 128" aria-hidden="true"><circle cx="64" cy="64" r="58" pathLength="100"/></svg>
+            <span class="sr-only status" role="status" aria-live="polite"></span>
+          </div>
+        </div>
+      </section>
+      <p class="hint">Нажмите любую кнопку. Анимацию можно повторять.</p>
+    </main>
+  </body>
+</html>

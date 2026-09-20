@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paradrop — Download Button</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="paradrop" data-state="idle">
+    <header><p class="eyebrow">PARADROP</p><h1>Download Button</h1></header>
+    <div class="stage">
+      <svg viewBox="0 0 600 410" aria-hidden="true">
+        <path class="rail track"/>
+        <path class="rail fill" pathLength="1"/>
+        <g class="rig">
+          <g class="canopy">
+            <path class="dome" d="M-24 -51 A25 23 0 0 1 24 -51 Z"/>
+            <path class="cords" d="M-24 -51 0 -23 24 -51 M-9 -51 0 -23 9 -51"/>
+          </g>
+          <path class="arrow" d="M-8 -23 H8 V2 H18 L0 23 -18 2 H-8 Z"/>
+        </g>
+        <path class="check" d="M280 253 294 267 321 237"/>
+        <text class="complete" x="300" y="219" text-anchor="middle">Complete</text>
+      </svg>
+      <button class="download" aria-label="Start download animation" title="Download"></button>
+      <div class="progress" role="progressbar" aria-label="Download progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span>0%</span></div>
+      <button class="action" hidden>Cancel</button>
+    </div>
+    <p class="file">paradrop-kit.txt <span>7 KB</span></p>
+    <p class="sr-only" role="status" aria-live="polite">Ready to download.</p>
+    <noscript>Enable JavaScript to play the download animation.</noscript>
+  </main>
+</body>
+</html>

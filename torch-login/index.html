@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Follow the light — Torch login</title>
+  <link rel="stylesheet" href="style.css"><script src="script.js" defer></script>
+</head>
+<body>
+  <main class="scene" data-phase="loading" aria-label="Flashlight login animation">
+    <img class="character" src="assets/walk-00.png" alt="A little explorer holding a flashlight" width="180" height="165">
+    <div class="beam" aria-hidden="true"></div>
+    <div class="torch-core" aria-hidden="true"></div>
+    <div class="halo" aria-hidden="true"></div>
+    <section class="login-card" aria-labelledby="welcome" inert>
+      <header><h1 id="welcome">Welcome back</h1><p>Follow the light to your account.</p></header>
+      <form>
+        <label for="email">Email</label>
+        <input id="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+        <label for="password">Password</label>
+        <div class="password-field"><input id="password" type="password" placeholder="Enter your password" autocomplete="current-password" required minlength="6"><button class="show-password" type="button" aria-controls="password" aria-pressed="false">Show</button></div>
+        <div class="options"><label class="remember"><input type="checkbox"> <span>Remember me</span></label><button class="text-button" type="button" data-info="Password recovery is not connected in this local demo.">Forgot password?</button></div>
+        <button class="submit" type="submit">Log in</button>
+        <p class="signup">New here? <button class="text-button" type="button" data-info="Account creation is not connected in this local demo.">Create an account</button></p>
+        <p class="feedback" role="status" hidden></p>
+      </form>
+    </section>
+    <div class="controls"><button id="skip" type="button">tap to skip</button><button id="replay" type="button" hidden aria-label="Replay animation">↻ Replay</button></div>
+  </main>
+</body>
+</html>

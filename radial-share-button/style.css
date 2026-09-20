@@ -1,0 +1,23 @@
+:root { color-scheme: light; font-family: Arial, Helvetica, sans-serif; background: #cec8b3; color: #222; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 280px; }
+main { min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; overflow: hidden; }
+.share { position: relative; width: 360px; height: 290px; --disc: 60px; }
+button { font: inherit; -webkit-tap-highlight-color: transparent; cursor: pointer; border: 0; }
+button:focus-visible { outline: 2px solid #455372; outline-offset: 6px; }
+.trigger, .channel { position: absolute; left: 50%; top: 75%; display: grid; place-items: center; background: #fff; box-shadow: 0 6px 12px #504a392a, inset 0 0 0 1px #e6e4e1; }
+.trigger { width: 180px; height: 68px; margin: -34px 0 0 -90px; border-radius: 40px; z-index: 2; }
+.label { font-size: 15px; font-weight: 600; letter-spacing: 2px; }
+.close { position: absolute; width: 25px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; opacity: 0; }
+.channel { width: var(--disc); height: var(--disc); margin: -30px 0 0 -30px; border-radius: 50%; color: var(--brand); opacity: 0; transform: scale(.2); visibility: hidden; z-index: 3; padding: 0; }
+.channel svg { width: 28px; height: 28px; overflow: visible; }
+.channel .glyph, .channel .flood, .channel .tick { position: absolute; inset: 0; display: grid; place-items: center; border-radius: inherit; pointer-events: none; }
+.flood { color: white; background: var(--brand); clip-path: circle(0% at var(--fx, 50%) var(--fy, 50%)); }
+.channel .tick { opacity: 0; color: #303238; }
+.channel .tick svg { width: 25px; }
+.status { position: absolute; top: calc(75% + 36px); left: -10%; width: 120%; margin: 0; text-align: center; font-size: 12px; color: #454b52; line-height: 20px; }
+.replay { position: absolute; top: calc(75% + 69px); left: 50%; transform: translateX(-50%); color: #555849; padding: 8px 14px; border-radius: 20px; background: transparent; font-size: 11px; letter-spacing: .5px; }
+.replay:hover { background: #00000008; }
+.share[data-state="open"] .channel:hover { box-shadow: 0 8px 16px #504a3940, inset 0 0 0 1px #e6e4e1; }
+@media (max-width: 380px) { .share { transform: scale(.83); } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; } }

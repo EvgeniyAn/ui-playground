@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Paper plane · Send</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main aria-label="Paper plane send animation">
+    <section class="stage" aria-label="Send buttons">
+      <button class="send" type="button" data-state="idle" aria-label="Send, dark">
+        <span class="result" aria-hidden="true"><span>✓</span> Sent</span>
+        <span class="plane" aria-hidden="true"><i class="facet left"></i><i class="facet right"></i><i class="facet crease-left"></i><i class="facet crease-right"></i></span>
+        <span class="label" aria-hidden="true">Send</span>
+        <span class="trails" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+      <button class="send violet" type="button" data-state="idle" aria-label="Send, violet">
+        <span class="result" aria-hidden="true"><span>✓</span> Sent</span>
+        <span class="plane" aria-hidden="true"><i class="facet left"></i><i class="facet right"></i><i class="facet crease-left"></i><i class="facet crease-right"></i></span>
+        <span class="label" aria-hidden="true">Send</span>
+        <span class="trails" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+    </section>
+    <footer><p>Click to send · Esc to reset</p><button class="replay" type="button">↻ Replay</button></footer>
+    <p class="sr-only" role="status" aria-live="polite" id="status"></p>
+  </main>
+</body>
+</html>

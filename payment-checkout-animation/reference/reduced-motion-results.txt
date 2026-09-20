@@ -1,0 +1,20 @@
+Running
+PASS Empty holder rejected
+PASS Card number formatted and mirrored
+PASS Invalid month rejected
+PASS CVV non-digits removed
+PASS CVV focus flips card
+PASS Leaving CVV reverses flip
+PASS Repeated submit locked, cycle 0
+PASS Success complete, cycle 0
+PASS Reduced-motion cycle completes without long motion
+PASS Replay restores form and focus, cycle 0
+PASS Repeated submit locked, cycle 1
+PASS Success complete, cycle 1
+PASS Reduced-motion cycle completes without long motion
+PASS Replay restores form and focus, cycle 1
+PASS Repeated submit locked, cycle 2
+PASS Success complete, cycle 2
+PASS Reduced-motion cycle completes without long motion
+PASS Replay restores form and focus, cycle 2
+ALL CHECKS PASSED (JS media preference simulated)

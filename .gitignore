@@ -1,0 +1,49 @@
+# Reference downloader and its video library
+/video-reference-tool/
+/AGENTS.md
+
+# Dependencies and package-manager caches
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/cache/
+.yarn/unplugged/
+
+# Build tools and temporary output
+.cache/
+.parcel-cache/
+.vite/
+.next/
+.nuxt/
+.turbo/
+dist/
+build/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local environment, editor and operating-system files
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+*.log
+*.tmp
+*.swp
+*.swo
+*~

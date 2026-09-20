@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lamp · Sign in</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="scene" data-lit="false">
+    <div class="ambient" aria-hidden="true"></div>
+    <section class="workspace" aria-label="Lamp sign in">
+      <div class="lamp-area">
+        <svg class="lamp" viewBox="0 0 400 500" aria-hidden="true">
+          <defs>
+            <linearGradient id="shade"><stop stop-color="#171a24"/><stop offset=".48" stop-color="#343746"/><stop offset="1" stop-color="#171923"/></linearGradient>
+            <linearGradient id="gold"><stop stop-color="#66502d"/><stop offset=".45" stop-color="#ebc778"/><stop offset="1" stop-color="#846631"/></linearGradient>
+            <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ffd36e" stop-opacity=".3"/><stop offset="1" stop-color="#ffd36e" stop-opacity="0"/></linearGradient>
+            <radialGradient id="pool"><stop stop-color="#f6cf7c" stop-opacity=".48"/><stop offset="1" stop-color="#e8bf6b" stop-opacity="0"/></radialGradient>
+            <filter id="soft"><feGaussianBlur stdDeviation="8"/></filter>
+          </defs>
+          <g class="light"><path d="M178 135 L106 445 L334 445 L285 135Z" fill="url(#beam)" filter="url(#soft)"/><ellipse cx="212" cy="440" rx="154" ry="29" fill="url(#pool)" filter="url(#soft)"/></g>
+          <ellipse cx="149" cy="443" rx="61" ry="11" fill="#06080c"/>
+          <ellipse cx="149" cy="437" rx="55" ry="9" fill="url(#gold)"/>
+          <ellipse cx="149" cy="434" rx="50" ry="7" fill="#171b25"/>
+          <path d="M149 432V300Q146 194 222 139" fill="none" stroke="#111620" stroke-width="11"/>
+          <path d="M147 430V300Q145 196 219 141" fill="none" stroke="url(#gold)" stroke-width="3"/>
+          <circle cx="149" cy="419" r="7" fill="url(#gold)"/><circle cx="149" cy="419" r="3" fill="#20212a"/>
+          <circle cx="162" cy="249" r="6" fill="url(#gold)"/>
+          <ellipse class="bulb" cx="239" cy="144" rx="15" ry="19" fill="#6c6552" stroke="#99886a"/>
+          <path d="M171 137C175 71 298 70 302 137Z" fill="url(#shade)" stroke="#373743" stroke-width="1.5"/>
+          <ellipse cx="236.5" cy="138" rx="65.5" ry="7.5" fill="#10131c" stroke="url(#gold)" stroke-width="2"/>
+          <g class="light"><ellipse cx="237" cy="143" rx="48" ry="3" fill="#ffdb83" filter="url(#soft)"/></g>
+        </svg>
+        <button class="pull" type="button" aria-label="Turn lamp on" aria-pressed="false" aria-controls="auth-card">
+          <span class="cord"></span><span class="handle"></span>
+        </button>
+        <span class="pull-hint">↓ &nbsp;Pull string to turn on</span>
+        <span class="lamp-help">Pull the cord · click · scroll</span>
+      </div>
+      <section class="auth-card" id="auth-card" aria-label="Account access" inert>
+        <div class="badge"><span></span> ACTIVE WORKSPACE</div>
+        <h1>Welcome Back</h1>
+        <p class="subtitle">Please enter your details to sign in</p>
+        <div class="tabs" role="tablist" aria-label="Account mode">
+          <button id="signin-tab" role="tab" aria-selected="true" aria-controls="account-panel" type="button">⇥ &nbsp;Sign In</button>
+          <button id="signup-tab" role="tab" aria-selected="false" aria-controls="account-panel" tabindex="-1" type="button">♧ &nbsp;Create Account</button>
+        </div>
+        <form id="account-panel" role="tabpanel" aria-labelledby="signin-tab">
+          <div class="name-field" hidden><label for="name">Full Name</label><div class="input-wrap"><span>♙</span><input id="name" autocomplete="name" placeholder="Your name" disabled></div></div>
+          <label for="email">Email Address</label>
+          <div class="input-wrap"><span>✉</span><input id="email" type="email" autocomplete="email" placeholder="name@company.com" required></div>
+          <div class="label-row"><label for="password">Password</label><button class="text-button" id="forgot" type="button">Forgot password?</button></div>
+          <div class="input-wrap"><span>♙</span><input id="password" type="password" autocomplete="current-password" placeholder="••••••••••••" minlength="8" required><button class="eye" type="button" aria-label="Show password" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+          <label class="remember"><input type="checkbox" checked> <span>Remember me for 30 days</span></label>
+          <button class="submit" type="submit"><span>Sign In to Account</span><span>→</span></button>
+        </form>
+        <div class="divider">OR CONTINUE WITH</div>
+        <div class="socials"><button type="button" data-provider="Google"><span class="google">G</span> Google</button><button type="button" data-provider="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5v-2.1c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.4-1 .6-1.2-2.2-.2-4.5-1.1-4.5-5a4 4 0 0 1 1-2.7c-.1-.2-.5-1.3.1-2.7 0 0 .8-.3 2.8 1a9.8 9.8 0 0 1 5.1 0c2-1.3 2.8-1 2.8-1 .6 1.4.2 2.5.1 2.7a4 4 0 0 1 1 2.7c0 3.9-2.3 4.8-4.5 5 .4.3.7.9.7 1.8v2.9A10 10 0 0 0 12 2Z"/></svg> GitHub</button></div>
+        <p class="status" role="status" aria-live="polite"></p>
+      </section>
+    </section>
+    <button class="replay" type="button" aria-label="Replay lamp animation">↻ <span>Replay</span></button>
+    <p class="sr-only" id="lamp-status" role="status">Lamp off. Pull the cord to reveal the form.</p>
+  </main>
+</body>
+</html>
