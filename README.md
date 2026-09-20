@@ -15,4 +15,4 @@ Each demo lives in its own folder with HTML, CSS, JavaScript, and any required a
 
 ## Adding a project
 
-Create a folder with an `index.html` file and its assets, then add a card with a link and description to the root `index.html`. Use relative paths, `target="_blank"`, and `rel="noopener noreferrer"`.
+Create a folder with an `index.html` file and its assets, save an optimized screenshot in `assets/previews/`, then add a card with a preview, link, and description to the root `index.html`. Use relative paths, `target="_blank"`, and `rel="noopener noreferrer"`.
