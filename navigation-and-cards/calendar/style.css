@@ -107,3 +107,9 @@ html {
 .today {
   background-color: #167e56;
 }
+
+@media (max-width: 482px) {
+  .calendar { width: calc(100vw - 32px); }
+  .weekdays div { width: calc(100% / 7); letter-spacing: 0; }
+  .days div { width: calc((100% - 4.2rem) / 7); }
+}

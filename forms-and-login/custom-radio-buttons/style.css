@@ -62,3 +62,10 @@
 .option input:checked ~ label::before {
   opacity: 1;
 }
+
+@media (max-width: 480px) {
+  .option { width: calc(100vw - 32px); margin: 16px 0; padding: 12px; }
+  .option label { font-size: clamp(36px, 11vw, 52px); }
+  .option label::after { right: 12px; }
+  .option label::before { right: 22px; }
+}

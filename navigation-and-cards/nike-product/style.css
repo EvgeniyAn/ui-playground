@@ -227,3 +227,7 @@ html {
 .price span:last-child {
   font-weight: bold;
 }
+
+@media (max-width: 532px) {
+  html { font-size: calc((100vw - 32px) / 50); }
+}

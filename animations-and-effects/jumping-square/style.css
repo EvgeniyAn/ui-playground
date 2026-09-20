@@ -150,3 +150,7 @@ html {
     transform: translateY(5rem) rotateZ(90deg);
   }
 }
+
+@media (max-width: 1048px) {
+  html { font-size: calc((100vw - 48px) / 100); }
+}

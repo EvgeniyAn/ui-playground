@@ -207,3 +207,11 @@ html {
     opacity: 0;
   }
 }
+
+@media (max-width: 1000px) {
+  .container { min-height: 100svh; height: auto; box-sizing: border-box; flex-direction: column; gap: 72px; padding: 48px 24px; }
+  .loader-1, .loader-2, .loader-3 { flex: none; max-width: 100%; }
+  .loader-2 { height: 180px; }
+  .loader-3 { padding: 30px 0; }
+  .circle { width: 28px; height: 28px; flex: none; }
+}

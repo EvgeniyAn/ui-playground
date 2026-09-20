@@ -79,3 +79,8 @@ html {
   font-size: 4rem;
   z-index: 10;
 }
+
+@media (max-width: 448px) {
+  .progressbar { width: calc(100vw - 48px); height: calc(100vw - 48px); }
+  .progressbar-circle { width: calc(100% - 6px); height: calc(100% - 6px); }
+}

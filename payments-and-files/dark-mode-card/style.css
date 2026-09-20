@@ -135,3 +135,8 @@ html {
   margin-left: -2rem;
   opacity: 0.7;
 }
+
+@media (max-width: 512px) {
+  html { font-size: calc((100vw - 32px) / 48); }
+  .toggle { top: 24px; right: 24px; }
+}
