@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>Bikeville — IF Mode</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script></head>
+<body>
+<main class="showroom">
+  <div class="blue-panel" aria-hidden="true"></div>
+  <header><a class="brand" href="../../index.html"><span aria-hidden="true">♧</span> Bikeville</a><nav aria-label="Product navigation"><button id="overview">Bikes <span>⌄</span></button><button data-info="delivery">Delivery</button><button data-info="contact">Contact</button><button id="cart" aria-label="Open demo cart">♧<span id="cart-count">0</span></button></nav></header>
+  <section class="product-heading"><h1>IF Mode</h1><div><button id="overview-tab" class="text-tab active">Overview</button><button id="specs">Specs</button></div></section>
+  <div class="monogram" aria-hidden="true">IF</div>
+  <div class="view-controls"><button id="unfold" class="selected" aria-label="Unfold bicycle" aria-pressed="true">♧</button><button id="fold" aria-label="Fold bicycle" aria-pressed="false">↯</button></div>
+  <div class="bike-stage"><svg id="bike" viewBox="0 0 640 460" role="img" aria-label="White folding bicycle with configurable components">
+  <defs>
+    <linearGradient id="frame" x1="0" y1="0" x2=".3" y2="1"><stop stop-color="#fffdf8"/><stop offset=".28" stop-color="#eae6df"/><stop offset=".65" stop-color="#dedad2"/><stop offset=".87" stop-color="#faf7f0"/><stop offset="1" stop-color="#b8b5b0"/></linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2=".65"><stop stop-color="#81858b"/><stop offset=".2" stop-color="#f1f2f3"/><stop offset=".48" stop-color="#b9bcc0"/><stop offset=".75" stop-color="#f5f5f5"/><stop offset="1" stop-color="#777d85"/></linearGradient>
+    <linearGradient id="rubber" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#494b51"/><stop offset=".3" stop-color="#17191e"/><stop offset=".75" stop-color="#27292d"/><stop offset="1" stop-color="#080b0e"/></linearGradient>
+    <linearGradient id="blade" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#a2a6ab"/><stop offset=".16" stop-color="#e8e9e9"/><stop offset=".5" stop-color="#c8cace"/><stop offset=".8" stop-color="#e4e5e7"/><stop offset="1" stop-color="#8b8f96"/></linearGradient>
+    <linearGradient id="leather" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#6e717c"/><stop offset=".35" stop-color="#3c3f48"/><stop offset="1" stop-color="#171a22"/></linearGradient>
+    <linearGradient id="grip" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#db8d7b"/><stop offset=".4" stop-color="#aa5750"/><stop offset="1" stop-color="#663e3c"/></linearGradient>
+    <radialGradient id="hub"><stop stop-color="#fafafa"/><stop offset=".35" stop-color="#686d73"/><stop offset=".5" stop-color="#d8dadc"/><stop offset=".8" stop-color="#999ea4"/><stop offset="1" stop-color="#ededee"/></radialGradient>
+    <filter id="shadow"><feGaussianBlur stdDeviation="4"/></filter>
+  </defs>
+  <g fill="#181b29" filter="url(#shadow)" opacity=".18"><ellipse cx="153" cy="421" rx="99" ry="5"/><ellipse cx="483" cy="421" rx="99" ry="5"/></g>
+  <g id="rear-assembly">
+    <g id="rear-wheel" transform="translate(153 321)"></g>
+    <path d="M150 304 Q139 305 138 320Q138 338 156 338L260 347Q286 355 296 338L294 326Q288 314 265 313Z" fill="url(#frame)" stroke="#b8b5af" stroke-width="1"/>
+    <path d="M152 307Q142 308 142 321Q142 332 158 333L265 342Q282 347 289 337" fill="none" stroke="#fffefb" stroke-width="2" opacity=".8"/>
+    <path d="M148 315Q159 309 169 314L159 325Q145 331 146 320Z" fill="none" stroke="#f8f6f1" stroke-width="1.5"/>
+    <g fill="#74787f" stroke="#d4d4d2" stroke-width="1"><circle cx="157" cy="307" r="2"/><circle cx="158" cy="334" r="2"/></g>
+    <text x="181" y="332" fill="#62646a" font-family="Arial" font-style="italic" font-weight="bold" font-size="7">Pacific</text>
+    <path d="M167 344L177 355L190 350" fill="none" stroke="#272a2e" stroke-width="7"/><circle cx="176" cy="349" r="3" fill="url(#metal)"/>
+  </g>
+  <g id="front-assembly">
+    <path d="M413 176L430 170Q442 218 462 265L485 315L475 324Q461 296 448 263Z" fill="url(#frame)" stroke="#b7b4af" stroke-width="1"/>
+    <path d="M423 183L453 264L479 315" fill="none" stroke="#fffdf8" stroke-width="3"/>
+    <g id="front-wheel" transform="translate(483 321)"></g>
+    <path d="M465 295L471 307L460 315" fill="none" stroke="#24272e" stroke-width="6"/>
+  </g>
+  <g id="body-frame">
+    <path d="M265 263L210 101" stroke="#13171e" stroke-width="10"/>
+    <path d="M263 260L208 103" stroke="#6b7079" stroke-width="1.6"/>
+    <path d="M252 224L256 223M249 214L253 213M245 204L249 203M242 194L246 193M239 184L243 183M235 174L239 173M232 164L236 163" stroke="#777c84" stroke-width=".8"/>
+    <path d="M255 250L268 246L272 259L259 263Z" fill="url(#metal)" stroke="#80858d"/><path d="M260 252L273 246L278 249L268 255Z" fill="#aeb5bd"/>
+    <path d="M278 341Q288 351 298 338L274 270L423 205Q434 200 427 185L407 124L419 105L439 98L432 77L407 83Q389 87 394 105L412 173L255 247Q247 251 253 268Z" fill="url(#frame)" stroke="#b7b3ad" stroke-width="1.2"/>
+    <path d="M279 332L260 263L417 191L401 102Q398 93 410 91L428 85" fill="none" stroke="#fffefb" stroke-width="3" opacity=".85"/>
+    <path d="M408 116L403 100Q401 95 410 94L429 88L432 96Z" fill="#fcfafc" stroke="#c5c1ba" stroke-width="1.5"/>
+    <path d="M275 277L422 211" stroke="#a6a6a4" stroke-width="2"/>
+    <path d="M296 263L395 219" stroke="#262c32" stroke-width="3"/>
+    <path d="M307 258L315 254M324 250L333 246M343 241L352 237M364 232L373 228" stroke="url(#metal)" stroke-width="4"/>
+    <path d="M345 210L355 237M404 182L417 209" stroke="#b2ada7" stroke-width="1"/>
+    <path d="M349 210L358 234" stroke="#fffdf8" stroke-width="1.5"/>
+    <path d="M278 274L286 272L287 281L279 283Z" fill="#939a9d"/>
+    <g fill="url(#hub)" stroke="#8d9194" stroke-width=".6"><circle cx="408" cy="189" r="3"/><circle cx="421" cy="207" r="3"/><circle cx="391" cy="222" r="2.5"/></g>
+    <path d="M279 281L268 287" stroke="#8b9094" stroke-width="2"/>
+    <path d="M438 99Q405 107 420 139M426 178Q438 199 428 219M461 273Q469 289 459 308M294 278Q275 295 287 315" stroke="#373b43" stroke-width="1.7" fill="none"/>
+    <path d="M439 100Q407 109 422 138" stroke="#a7a8ae" stroke-width=".6" fill="none"/>
+    <path d="M192 341Q233 356 278 347" fill="none" stroke="#3a3d43" stroke-width="1.2"/>
+    <text x="356" y="215" transform="rotate(-25 356 215)" fill="#44474c" font-family="Arial" font-size="8" letter-spacing="3">M O D E</text>
+    <text x="359" y="220" transform="rotate(-25 359 220)" fill="#73757b" font-family="Arial" font-size="2.4" letter-spacing=".7">INTEGRATED FOLDING</text>
+    <g id="saddle"></g><g id="handlebars"></g><g id="pedals"></g>
+  </g>
+  </svg></div>
+  <section class="configuration" aria-labelledby="configure-title"><button class="back" id="back">← <span>Back</span></button><h2 id="configure-title">Configure the Bike</h2><div class="categories" role="group" aria-label="Component category"></div><h3 id="part-title">Wheels</h3><div class="options" role="group" aria-labelledby="part-title"></div></section>
+  <footer class="purchase"><div><span>Price</span><strong id="price">$2850</strong></div><button id="add"><span aria-hidden="true">＋</span> Add to Cart</button></footer>
+  <div class="playback"><button id="replay">↻ Replay</button><button id="reset">Reset</button></div>
+  <p id="status" role="status" class="sr-only"></p>
+</main>
+<p class="hint">YOUR BIKE. YOUR WAY. <span>Choose a component to make it yours.</span></p>
+<dialog id="info"><button id="close" aria-label="Close dialog">×</button><h2 id="dialog-title"></h2><p id="dialog-copy"></p></dialog>
+</body></html>
