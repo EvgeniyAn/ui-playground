@@ -59,62 +59,68 @@
     }
   };
 
+  // The whole sweep follows one eased progress curve, so the beam never
+  // stalls mid-turn. Everything else is derived from the beam angle: the
+  // closer the lamp faces the viewer (≈ -95°), the wider the fan and the
+  // brighter the flash, bloom and lens flare.
+  const START_ANGLE = -170;
+  const END_ANGLE = -4;
+  const FACING_ANGLE = -95;
+  const SAMPLES = 90;
+
+  const easeInOutCubic = (x) => (x < 0.5 ? 4 * x ** 3 : 1 - (-2 * x + 2) ** 3 / 2);
+  // t^0.8 brings the flash forward to ~40% of the sweep, as in the reel.
+  const sweepProgress = (t) => easeInOutCubic(t ** 0.8);
+  const lerp = (a, b, k) => a + (b - a) * k;
+
+  // Light builds quickly toward the viewer and fades out more slowly.
+  const facing = (angle) => {
+    const d = angle - FACING_ANGLE;
+    return Math.exp(-((d / (d < 0 ? 30 : 42)) ** 2));
+  };
+
+  const buildLightFrames = () => {
+    const frames = { light: [], bloom: [], flash: [], flare: [] };
+    for (let i = 0; i <= SAMPLES; i += 1) {
+      const t = i / SAMPLES;
+      const p = sweepProgress(t);
+      const angle = lerp(START_ANGLE, END_ANGLE, p);
+      // Subtract the tail at the end angle so the last frame matches the CSS rest state.
+      const glow = Math.max(0, facing(angle) - facing(END_ANGLE) * p);
+      const fadeIn = Math.min(1, t / 0.05);
+      const offset = t;
+
+      frames.light.push({
+        offset,
+        opacity: fadeIn,
+        transform: `rotate(${angle.toFixed(2)}deg)`,
+        "--spread": `${(lerp(60, 26, p) + 250 * glow).toFixed(2)}deg`,
+      });
+      frames.bloom.push({
+        offset,
+        opacity: Math.min(1, t / 0.08) * (0.75 + 0.25 * glow),
+        transform: `scale(${(lerp(0.7, 1, Math.min(1, t / 0.3)) + 0.9 * glow).toFixed(3)})`,
+      });
+      frames.flash.push({ offset, opacity: glow ** 1.3 });
+      frames.flare.push({ offset, opacity: glow });
+    }
+    return frames;
+  };
+
+  const lightFrames = buildLightFrames();
+
   const playLight = () => {
-    const ease = "cubic-bezier(0.45, 0, 0.35, 1)";
+    const timing = { delay: INTRO_DELAY, duration: LIGHT_DURATION };
     return [
       animate(tower, [{ opacity: 0 }, { opacity: 1 }], {
         delay: INTRO_DELAY - 40,
         duration: 140,
         easing: "ease-out",
       }),
-      animate(
-        light,
-        [
-          { offset: 0, opacity: 0, transform: "rotate(-170deg)", "--spread": "60deg" },
-          { offset: 0.05, opacity: 1, transform: "rotate(-168deg)", "--spread": "70deg", easing: ease },
-          { offset: 0.27, transform: "rotate(-150deg)", "--spread": "105deg", easing: ease },
-          { offset: 0.4, transform: "rotate(-100deg)", "--spread": "300deg", easing: ease },
-          { offset: 0.55, transform: "rotate(-48deg)", "--spread": "150deg", easing: ease },
-          { offset: 0.75, transform: "rotate(-13deg)", "--spread": "46deg", easing: ease },
-          { offset: 1, opacity: 1, transform: "rotate(-4deg)", "--spread": "26deg" },
-        ],
-        { delay: INTRO_DELAY, duration: LIGHT_DURATION }
-      ),
-      animate(
-        bloom,
-        [
-          { offset: 0, opacity: 0, transform: "scale(0.6)" },
-          { offset: 0.08, opacity: 0.9, transform: "scale(0.8)" },
-          { offset: 0.4, opacity: 1, transform: "scale(1.9)" },
-          { offset: 0.62, opacity: 1, transform: "scale(1.25)" },
-          { offset: 1, opacity: 0.75, transform: "scale(1)" },
-        ],
-        { delay: INTRO_DELAY, duration: LIGHT_DURATION, easing: "ease-in-out" }
-      ),
-      animate(
-        flash,
-        [
-          { offset: 0, opacity: 0 },
-          { offset: 0.2, opacity: 0.06 },
-          { offset: 0.38, opacity: 1 },
-          { offset: 0.5, opacity: 0.62 },
-          { offset: 0.68, opacity: 0.16 },
-          { offset: 1, opacity: 0 },
-        ],
-        { delay: INTRO_DELAY, duration: LIGHT_DURATION, easing: "ease-in-out" }
-      ),
-      animate(
-        flare,
-        [
-          { offset: 0, opacity: 0 },
-          { offset: 0.2, opacity: 0.35 },
-          { offset: 0.38, opacity: 1 },
-          { offset: 0.52, opacity: 0.7 },
-          { offset: 0.72, opacity: 0 },
-          { offset: 1, opacity: 0 },
-        ],
-        { delay: INTRO_DELAY, duration: LIGHT_DURATION, easing: "ease-in-out" }
-      ),
+      animate(light, lightFrames.light, timing),
+      animate(bloom, lightFrames.bloom, timing),
+      animate(flash, lightFrames.flash, timing),
+      animate(flare, lightFrames.flare, timing),
     ];
   };
 

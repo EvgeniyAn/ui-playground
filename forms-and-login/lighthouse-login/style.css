@@ -96,6 +96,8 @@ body {
 }
 
 .beam {
+  /* No filter here: a blur on these huge layers is re-rasterised every
+     frame while --spread animates and makes the sweep stutter. */
   position: absolute;
   left: calc(var(--beam-size) / -2);
   top: calc(var(--beam-size) / -2);
@@ -129,15 +131,13 @@ body {
 
 .beam--glow {
   background: radial-gradient(closest-side, rgba(255, 224, 160, 1), rgba(250, 176, 76, 0.95) 8%, rgba(226, 142, 46, 0.8) 28%, rgba(170, 98, 24, 0.45) 48%, transparent 66%);
-  filter: blur(6px);
 }
 
 .beam--rays {
   background:
-    repeating-conic-gradient(from 0.4deg, rgba(255, 214, 140, 0) 0deg, rgba(255, 214, 140, 0.42) 0.8deg, rgba(255, 214, 140, 0) 1.7deg, rgba(255, 214, 140, 0) 2.3deg),
-    repeating-conic-gradient(from 1.1deg, rgba(240, 160, 70, 0) 0deg, rgba(240, 160, 70, 0.4) 1.2deg, rgba(240, 160, 70, 0) 2.6deg, rgba(240, 160, 70, 0) 3.7deg),
+    repeating-conic-gradient(from 0.4deg, rgba(255, 214, 140, 0.04) 0deg, rgba(255, 214, 140, 0.38) 1.1deg, rgba(255, 214, 140, 0.04) 2.3deg),
+    repeating-conic-gradient(from 1.1deg, rgba(240, 160, 70, 0.04) 0deg, rgba(240, 160, 70, 0.36) 1.8deg, rgba(240, 160, 70, 0.04) 3.7deg),
     radial-gradient(closest-side, rgba(255, 244, 214, 0.95), rgba(255, 196, 110, 0.6) 6%, rgba(236, 150, 56, 0.3) 24%, transparent 62%);
-  filter: blur(3px);
 }
 
 .beam--shimmer {
