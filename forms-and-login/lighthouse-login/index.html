@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lighthouse Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section class="hero" data-hero data-phase="dark" aria-label="Sign in">
+    <div class="scene" aria-hidden="true">
+      <img class="tower" src="assets/lighthouse.webp" alt="" width="1024" height="1536" decoding="async">
+      <div class="lamp">
+        <div class="light" data-light>
+          <div class="beam beam--glow"></div>
+          <div class="beam beam--rays"></div>
+          <div class="beam beam--rays beam--shimmer"></div>
+        </div>
+        <div class="bloom" data-bloom></div>
+        <div class="flare" data-flare>
+          <span style="--d: 0.52; --s: 0.6"></span>
+          <span style="--d: 0.64; --s: 0.9"></span>
+          <span style="--d: 0.74; --s: 1.6"></span>
+          <span style="--d: 0.92; --s: 0.5"></span>
+        </div>
+      </div>
+      <div class="flash" data-flash></div>
+      <div class="veil" data-veil></div>
+    </div>
+
+    <form class="card" data-card novalidate>
+      <p class="eyebrow">Member access</p>
+      <h1>Welcome<br>back.</h1>
+      <p class="lead">Sign in to continue your journey.</p>
+
+      <label class="label" for="email">Email address</label>
+      <div class="field">
+        <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required>
+      </div>
+
+      <label class="label" for="password">Password</label>
+      <div class="field field--password">
+        <input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" minlength="6" required>
+        <button class="reveal" type="button" data-reveal aria-controls="password" aria-pressed="false">Show</button>
+      </div>
+
+      <div class="row">
+        <label class="check">
+          <input type="checkbox" name="remember">
+          <span class="check__box" aria-hidden="true"></span>
+          Remember me
+        </label>
+        <a class="link" href="#" data-demo-link>Forgot password?</a>
+      </div>
+
+      <button class="submit" type="submit" data-submit>
+        <span class="submit__label">Sign in</span>
+      </button>
+
+      <p class="status" data-status role="status" aria-live="polite"></p>
+
+      <p class="foot">New here? <a href="#" data-demo-link>Create an account</a></p>
+    </form>
+
+    <button class="replay" type="button" data-replay>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Replay intro
+    </button>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
