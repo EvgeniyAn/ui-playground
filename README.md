@@ -1,6 +1,6 @@
 # HTML / CSS / JS — UI Collection
 
-Open [index.html](index.html) directly in your browser to browse all 37 projects with screenshot previews. Each project opens in a new tab. No build step or dependency installation is required.
+Open [index.html](index.html) directly in your browser to browse all 38 projects with screenshot previews. Each project opens in a new tab. No build step or dependency installation is required.
 
 ## Projects
 
@@ -10,7 +10,7 @@ The folders match the groups in the catalog:
 | --- | ---: | --- |
 | [forms-and-login](forms-and-login/) | 9 | Login forms, registration, OTP verification, bug reports, radio buttons, and checkboxes |
 | [buttons-and-actions](buttons-and-actions/) | 6 | Sharing, ordering, sending, downloading, and deletion animations |
-| [payments-and-files](payments-and-files/) | 4 | Checkout demos, a payment card with a theme toggle, and file uploads |
+| [payments-and-files](payments-and-files/) | 5 | Checkout demos, a receipt printer, a payment card with a theme toggle, and file uploads |
 | [navigation-and-cards](navigation-and-cards/) | 12 | Menus, carousels, profile and product cards, notifications, a calendar, and slideshows |
 | [animations-and-effects](animations-and-effects/) | 6 | A 3D landing page, scroll progress, a bouncing square, social icons, loaders, and counters |
 

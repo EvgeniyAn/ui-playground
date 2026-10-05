@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Receipt Printer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="stage">
+    <section class="device" data-receipt-printer aria-label="Payment receipt printer">
+      <div class="printer" data-theme="gold" data-status="printing">
+        <div class="printer__body"><span class="printer__led" aria-hidden="true"></span></div>
+        <div class="printer__slot" aria-hidden="true"></div>
+        <div class="printer__lip" aria-hidden="true"></div>
+      </div>
+      <div class="paper-path" data-paper-path></div>
+      <p class="sr-only" aria-live="polite" data-status-text></p>
+    </section>
+    <p class="hint">Click the receipt to tear it off and print the next one.</p>
+  </main>
+  <canvas class="confetti" aria-hidden="true"></canvas>
+</body>
+</html>
